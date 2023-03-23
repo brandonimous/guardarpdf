@@ -1,0 +1,26 @@
+﻿@model guardarpdf.Models.Ejemplo;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+    var pdf_base64;
+</script>
+
+<form method="post" enctype="multipart/form-data" asp-action="Index">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <label asp-for="archivo"></label>
+    <input type="file" id="files" accept=".pdf" asp-for="archivo" />
+
+    <div class="input-field col s6">
+        <button class="btn-floating btn-large cyan pulse" type="submit" name="action"><i
+                class="material-icons">save</i></button>
+    </div>
+
+</form>
+
+
+<input type="button" value="ver base64" onclick="VerPdfBase64(pdf_base64);" />
+<br><br>
